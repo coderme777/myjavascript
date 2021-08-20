@@ -16,6 +16,7 @@ function getCross(target)
     soundCross.play();
     count++;
 }
+
 function getZero(target)
 {
     target.innerHTML = zero;
@@ -24,6 +25,7 @@ function getZero(target)
     soundZero.play();
     count++;
 }
+
 function getInit(e)
 { //для инициализации игры
     if(!step) getCross(e.target); //e.target передаем объект, на котором сработало событие
@@ -31,6 +33,7 @@ function getInit(e)
     step = !step;
     getWin();
 }
+
 function getNewGame()
 {
     step = false;
@@ -42,6 +45,7 @@ function getNewGame()
     });
     //game.addEventListener('click', init);//если не работает, то дабавить эту строку
 }
+
 function getWin()
 {
     let combination = [
@@ -54,12 +58,10 @@ function getWin()
         [1,4,7],
         [2,5,8],
     ];
-    for(let i=0; i<combination.length; i++)
-    {
+    for(let i=0; i<combination.length; i++) {
         if(fields[combination[i][0]].classList.contains('x') &&
         fields[combination[i][1]].classList.contains('x') &&
-        fields[combination[i][2]].classList.contains('x'))
-        {
+        fields[combination[i][2]].classList.contains('x')) {
             setTimeout(()=>{ //нужна задержка, чтобы значек дорисовался
                 fields[combination[i][0]].classList.add('active');
                 fields[combination[i][1]].classList.add('active'); 
@@ -70,8 +72,7 @@ function getWin()
         }
         else if(fields[combination[i][0]].classList.contains('o') &&
             fields[combination[i][1]].classList.contains('o') &&
-            fields[combination[i][2]].classList.contains('o'))
-        {
+            fields[combination[i][2]].classList.contains('o')) {
                 setTimeout(()=>{ //нужна задержка, чтобы значек дорисовался
                     fields[combination[i][0]].classList.add('active');
                     fields[combination[i][1]].classList.add('active'); 
@@ -80,8 +81,7 @@ function getWin()
                 },1000);
                 game.removeEventListener('click', getInt);
             }
-        else if(count == 9)
-        {
+        else if(count == 9) {
             setTimeout(()=>{ //нужна задержка, чтобы значек дорисовался
                 res.innerText = 'Ничья'; 
             },1000);
