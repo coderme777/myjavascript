@@ -58,8 +58,8 @@ function getWin()
         [1,4,7],
         [2,5,8],
     ];
-    for(let i=0; i<combination.length; i++) {
-        if(fields[combination[i][0]].classList.contains('x') &&
+    for (let i=0; i<combination.length; i++) {
+        if (fields[combination[i][0]].classList.contains('x') &&
         fields[combination[i][1]].classList.contains('x') &&
         fields[combination[i][2]].classList.contains('x')) {
             setTimeout(()=>{ //нужна задержка, чтобы значек дорисовался
@@ -70,7 +70,7 @@ function getWin()
             },1000);
             game.removeEventListener('click', getInt);//после победы нельзя рисовать
         }
-        else if(fields[combination[i][0]].classList.contains('o') &&
+        else if (fields[combination[i][0]].classList.contains('o') &&
             fields[combination[i][1]].classList.contains('o') &&
             fields[combination[i][2]].classList.contains('o')) {
                 setTimeout(()=>{ //нужна задержка, чтобы значек дорисовался
@@ -81,7 +81,7 @@ function getWin()
                 },1000);
                 game.removeEventListener('click', getInt);
             }
-        else if(count == 9) {
+        else if (count == 9) {
             setTimeout(()=>{ //нужна задержка, чтобы значек дорисовался
                 res.innerText = 'Ничья'; 
             },1000);
